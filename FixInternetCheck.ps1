@@ -1,9 +1,9 @@
 #Requires -RunAsAdministrator
 
 Write-Warning "BACKUP YOUR REGISTRY BEFORE RUNNING!"
-$ContinueRun = Read-Host "Continue running? (y/n)"
+$ContinueRun = (Read-Host "Continue running? (y/n)").ToLower()
 
-if (($ContinueRun -ne 'y') -or ($ContinueRun -ne 'Y')) {
+if ($ContinueRun -ne 'y') {
   Write-Output "Exiting..."
   break
 }
