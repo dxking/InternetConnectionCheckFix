@@ -1,5 +1,13 @@
 #Requires -RunAsAdministrator
 
+Write-Warning "BACKUP YOUR REGISTRY BEFORE RUNNING!"
+$ContinueRun = Read-Host "Continue running? (y/n)"
+
+if (($ContinueRun -ne 'y') -or ($ContinueRun -ne 'Y')) {
+  Write-Output "Exiting..."
+  break
+}
+
 # changes made based off of answer here: https://answers.microsoft.com/en-us/windows/forum/windows_10-networking/windows-shows-no-internet-access-but-my-internet/2e9b593f-c31c-4448-b5d9-6e6b2bd8560c
 $Hive = "HKLM:\SYSTEM\CurrentControlSet\Services\NlaSvc\Parameters\Internet"
 $RegChanges = [PSCustomObject]@{
